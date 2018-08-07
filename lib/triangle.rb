@@ -18,10 +18,10 @@ class Triangle
     end
   end
 
-  def traingleChecker
-    real_triangle = [(a + b > c), (a + c > b), (b + c > a)]
-    [a, b, c].each { |s| real_triangle << false if s <= 0 }
-    raise TriangleError if real_triangle.include?(false)
+  def triangleChecker
+    if @a <= 0 || @b <= 0 || @c <= 0 || @a + @b < @c || @a + @c < @b || @b + @c < @a
+      raise TriangleError
+    end
   end
 
   class TriangleError < StandardError
