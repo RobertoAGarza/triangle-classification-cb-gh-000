@@ -8,7 +8,7 @@ class Triangle
   end
 
   def kind
-    triangleChecker
+    
     if @a == @b and @a == @c
       :equilateral
     elsif @a == @b || @a == @c || @b == @c
@@ -19,9 +19,9 @@ class Triangle
   end
 
   def traingleChecker
-    if @a <= 0 || @b <= 0 || @c <= 0 || @a + @b < @c || @a + @c < @b || @b + @c < @a
-      raise TriangleError
-    end
+    real_triangle = [(a + b > c), (a + c > b), (b + c > a)]
+    [a, b, c].each { |s| real_triangle << false if s <= 0 }
+    raise TriangleError if real_triangle.include?(false)
   end
 
   class TriangleError < StandardError
