@@ -8,7 +8,7 @@ class Triangle
   end
 
   def kind
-
+    triangleChecker
     if @a == @b and @a == @c
       :equilateral
     elsif @a == @b || @a == @c || @b == @c
