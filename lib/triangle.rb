@@ -18,5 +18,12 @@ class Triangle
     end
   end
 
-
+  def traingleChecker
+    if @a <= 0 || @b <= 0 || @c <= 0 || @a + @b < @c || @a + @c < @b || @b + @c < @a
+      raise TriangleError
+    end
+  end
+   
+  class TriangleError < StandardError 
+  end  
 end
